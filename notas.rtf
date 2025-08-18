@@ -1,0 +1,43 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red18\green19\blue24;\red249\green249\blue249;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c8627\c9804\c12157;\cssrgb\c98039\c98039\c98039;
+}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+dfx5.shurtado\
+L1m@202504$\
+\
+\
+aws configure sso\
+\
+git archive --remote=https://git-codecommit.us-east-1.amazonaws.com/v1/repos/lca-module-terraform HEAD modules | tar -x\
+\
+\
+https://git-codecommit.us-east-1.amazonaws.com/v1/repos/lca-module-terraform\
+\
+aws codecommit get-file --repository-name https://git-codecommit.us-east-1.amazonaws.com/v1/repos/lca-module-terraform  --file-path \'93modules/*\'94 --query fileContent --output text | base64 --decode >  ./modules\
+\
+https://us-east-1.console.aws.amazon.com/codesuite/codecommit/repositories/lca-module-terraform/browse/refs/heads/main/--/modules/lca-llm/deploy/main.tf?region=us-east-1\
+\
+\
+.venv no deber\'eda estar\
+# .tfstate files\
+*.tfstate\
+*.tfstate.*\
+\
+Modules bkp\
+\
+Src/to_json/to_json.zip
+\f1\fs36 \cf3 \cb4 \
+Src/update_lca/update_lca_setting.zip\
+\
+qna no se que es\
+\
+.txt y .json que no se que son\
+\
+aws codecommit get-file --repository-name lca-module-terraform --file-path /modules/lca-vpc/main.tf   --profile AWSAdministratorAccess-847170869176}

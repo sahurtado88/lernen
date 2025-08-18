@@ -1,0 +1,1202 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "57f18348-75d3-4997-9f7d-80421a1ebd0a",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": -987.2,
+      "y": 29.6
+    },
+    "ActionMetadata": {
+      "57f18348-75d3-4997-9f7d-80421a1ebd0a": {
+        "position": {
+          "x": -806.4,
+          "y": 28.8
+        },
+        "children": [
+          "10f15e4e-4839-4dd4-b28b-6673e2a54787"
+        ],
+        "parameters": {
+          "TextToSpeechVoice": {
+            "languageCode": "es-US"
+          }
+        },
+        "overrideConsoleVoice": false,
+        "fragments": {
+          "SetContactData": "10f15e4e-4839-4dd4-b28b-6673e2a54787"
+        },
+        "overrideLanguageAttribute": true
+      },
+      "10f15e4e-4839-4dd4-b28b-6673e2a54787": {
+        "position": {
+          "x": -806.4,
+          "y": 28.8
+        },
+        "dynamicParams": []
+      },
+      "5b2df56d-1ae7-4a5d-90ff-c9b67eed5dba": {
+        "position": {
+          "x": 1261.6,
+          "y": -438.4
+        }
+      },
+      "6239a264-1983-4c2f-9eae-702d8cde7750": {
+        "position": {
+          "x": 629.6,
+          "y": 20.8
+        }
+      },
+      "c73fc373-2c17-4fb8-9bb9-01bd0f762054": {
+        "position": {
+          "x": 908.8,
+          "y": 24.8
+        }
+      },
+      "Succesful registration prompt": {
+        "position": {
+          "x": 3870.4,
+          "y": 4
+        },
+        "isFriendlyName": true
+      },
+      "737de833-dd1f-4646-8937-5e3141c96c16": {
+        "position": {
+          "x": 3200,
+          "y": -141.6
+        }
+      },
+      "cba796cf-2378-4f06-aaed-73ec125ddb65": {
+        "position": {
+          "x": 3504.8,
+          "y": -155.2
+        }
+      },
+      "8346c731-217c-4e6a-ba4c-34f8393ab721": {
+        "position": {
+          "x": -492,
+          "y": 25.6
+        }
+      },
+      "ef37e5a2-988e-4775-8249-52a2c2af8591": {
+        "position": {
+          "x": 4512.8,
+          "y": 90.4
+        }
+      },
+      "04f7bf55-8466-43fe-b8d3-dee1db5f818e": {
+        "position": {
+          "x": 101.6,
+          "y": -1537.6
+        }
+      },
+      "80ad53e0-9a95-46d8-9432-99959cb59fb2": {
+        "position": {
+          "x": -213.6,
+          "y": 28
+        },
+        "dynamicParams": []
+      },
+      "Incident title input": {
+        "position": {
+          "x": 2808,
+          "y": 25.6
+        },
+        "isFriendlyName": true,
+        "conditionMetadata": [
+          {
+            "id": "917e9efb-9add-4c3c-99cd-32de3f9a6935",
+            "value": "#"
+          }
+        ]
+      },
+      "8ccf7705-6572-46b0-838e-618c7113b309": {
+        "position": {
+          "x": -1165.6,
+          "y": -1030.4
+        }
+      },
+      "Invalid Employee ID": {
+        "position": {
+          "x": -838.4,
+          "y": -996
+        },
+        "isFriendlyName": true
+      },
+      "Welcome message": {
+        "position": {
+          "x": 136,
+          "y": 33.6
+        },
+        "isFriendlyName": true
+      },
+      "Location prompt": {
+        "position": {
+          "x": 1214.4,
+          "y": 20.8
+        },
+        "isFriendlyName": true
+      },
+      "Get location": {
+        "position": {
+          "x": 1525.6,
+          "y": 22.4
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "Live",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "prd-201-11645-faqBot-prd"
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "x-amz-lex:audio:end-timeout-ms:*:*": false,
+          "x-amz-lex:audio:max-length-ms:*:*": false
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "prd-201-11645-faqBot-prd",
+        "lexV2BotAliasName": "Live",
+        "conditionMetadata": []
+      },
+      "Specific location prompt": {
+        "position": {
+          "x": 1710.4,
+          "y": -392
+        },
+        "isFriendlyName": true
+      },
+      "Get specific location": {
+        "position": {
+          "x": 2005.6,
+          "y": -395.2
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "Live",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "prd-201-11645-faqBot-prd"
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "x-amz-lex:audio:end-timeout-ms:*:*": false,
+          "x-amz-lex:audio:max-length-ms:*:*": false
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "prd-201-11645-faqBot-prd",
+        "lexV2BotAliasName": "Live",
+        "conditionMetadata": []
+      },
+      "Save employee ID": {
+        "position": {
+          "x": -146.4,
+          "y": -612
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "Attributes": {
+            "employee_id": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "employee_id"
+        ]
+      },
+      "4d91dd9d-0037-48c2-b9eb-76b31b735a55": {
+        "position": {
+          "x": 1256,
+          "y": -706.4
+        }
+      },
+      "Invalid OTP Code": {
+        "position": {
+          "x": 505.6,
+          "y": -1083.2
+        },
+        "isFriendlyName": true
+      },
+      "948749d8-57e4-40f1-acb5-66fede9990d9": {
+        "position": {
+          "x": 164,
+          "y": -1059.2
+        }
+      },
+      "Description - Actions prompt": {
+        "position": {
+          "x": 2493.6,
+          "y": 24
+        },
+        "isFriendlyName": true
+      },
+      "Involved companies prompt": {
+        "position": {
+          "x": 1856.8,
+          "y": 22.4
+        },
+        "isFriendlyName": true
+      },
+      "Get involved companies": {
+        "position": {
+          "x": 2174.4,
+          "y": 24
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "Live",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "prd-201-11645-faqBot-prd"
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "x-amz-lex:audio:end-timeout-ms:*:*": false,
+          "x-amz-lex:audio:max-length-ms:*:*": false
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "prd-201-11645-faqBot-prd",
+        "lexV2BotAliasName": "Live",
+        "conditionMetadata": []
+      },
+      "Check OTP verification": {
+        "position": {
+          "x": 784,
+          "y": -633.6
+        },
+        "isFriendlyName": true,
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "eab25d5d-1a04-45cb-90db-207e1ac4ebd9",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "RETRY"
+          },
+          {
+            "id": "9ecd01fc-5d6f-47e3-a71d-4034087357ec",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "FALSE"
+          },
+          {
+            "id": "2f9ac3ad-12c3-4bbd-ade4-eb2506532a51",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "TRUE"
+          }
+        ]
+      },
+      "Get OTP Code": {
+        "position": {
+          "x": 158.4,
+          "y": -722.4
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "Live",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "prd-201-11645-faqBot-prd"
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "x-amz-lex:audio:start-timeout-ms:*:*": false,
+          "x-amz-lex:audio:end-timeout-ms:*:*": false,
+          "x-amz-lex:audio:max-length-ms:*:*": false
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "prd-201-11645-faqBot-prd",
+        "lexV2BotAliasName": "Live",
+        "conditionMetadata": [
+          {
+            "id": "964c8939-9dd2-4c89-8afd-01cc4e5b3528",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "UserIdIntent"
+          }
+        ]
+      },
+      "Verify OTP": {
+        "position": {
+          "x": 476,
+          "y": -609.6
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "PRD-201-11645-otp-validation-prd"
+          },
+          "LambdaInvocationAttributes": {
+            "employee_id": {
+              "useDynamic": true
+            },
+            "otp_code": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "employee_id": true,
+          "otp_code": true
+        }
+      },
+      "Check employee ID": {
+        "position": {
+          "x": -546.4,
+          "y": -744
+        },
+        "isFriendlyName": true,
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "664aa367-18e6-4c9f-bc01-3e3ca97dc057",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "FALSE"
+          },
+          {
+            "id": "e6c11cf9-b4da-42d2-890b-ecab898ca87b",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "TRUE"
+          }
+        ]
+      },
+      "Get Employee ID": {
+        "position": {
+          "x": -1195.2,
+          "y": -647.2
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "Live",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "prd-201-11645-faqBot-prd"
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "x-amz-lex:audio:end-timeout-ms:*:*": false,
+          "x-amz-lex:audio:max-length-ms:*:*": false
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "prd-201-11645-faqBot-prd",
+        "lexV2BotAliasName": "Live",
+        "conditionMetadata": [
+          {
+            "id": "7b4ed882-71de-46c5-ba0e-ae2e2c20004e",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "UserIdIntent"
+          }
+        ]
+      },
+      "Error prompt": {
+        "position": {
+          "x": 4230.4,
+          "y": 504
+        },
+        "isFriendlyName": true
+      },
+      "539c5a87-bcd4-4e43-b27a-860d6e1c0aaf": {
+        "position": {
+          "x": -877.6,
+          "y": -656
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "PRD-201-11645-validate-employee-id-prd"
+          },
+          "LambdaInvocationAttributes": {
+            "employee_id": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "employee_id": true
+        }
+      }
+    },
+    "Annotations": [],
+    "name": "0003 - Incedents reports voicebot flow",
+    "description": "",
+    "type": "contactFlow",
+    "status": null,
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "TextToSpeechVoice": "Lupe"
+      },
+      "Identifier": "57f18348-75d3-4997-9f7d-80421a1ebd0a",
+      "Type": "UpdateContactTextToSpeechVoice",
+      "Transitions": {
+        "NextAction": "10f15e4e-4839-4dd4-b28b-6673e2a54787",
+        "Errors": [
+          {
+            "NextAction": "8346c731-217c-4e6a-ba4c-34f8393ab721",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LanguageCode": "es-US"
+      },
+      "Identifier": "10f15e4e-4839-4dd4-b28b-6673e2a54787",
+      "Type": "UpdateContactData",
+      "Transitions": {
+        "NextAction": "8346c731-217c-4e6a-ba4c-34f8393ab721",
+        "Errors": [
+          {
+            "NextAction": "8346c731-217c-4e6a-ba4c-34f8393ab721",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Haz alcanzado el máximo de reintentos para validar el código ó té pé, se desconectará la llamada."
+      },
+      "Identifier": "5b2df56d-1ae7-4a5d-90ff-c9b67eed5dba",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "ef37e5a2-988e-4775-8249-52a2c2af8591",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Se ha validado tu identidad."
+      },
+      "Identifier": "6239a264-1983-4c2f-9eae-702d8cde7750",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "c73fc373-2c17-4fb8-9bb9-01bd0f762054",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "RecordedParticipants": [
+            "Agent",
+            "Customer"
+          ],
+          "IVRRecordingBehavior": "Enabled"
+        }
+      },
+      "Identifier": "c73fc373-2c17-4fb8-9bb9-01bd0f762054",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "Location prompt"
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Se ha registrado tu información correctamente, procederé a crear el incidente en el sistema de Antamina."
+      },
+      "Identifier": "Succesful registration prompt",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "ef37e5a2-988e-4775-8249-52a2c2af8591",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LoopCount": "5"
+      },
+      "Identifier": "737de833-dd1f-4646-8937-5e3141c96c16",
+      "Type": "Loop",
+      "Transitions": {
+        "NextAction": "Succesful registration prompt",
+        "Conditions": [
+          {
+            "NextAction": "cba796cf-2378-4f06-aaed-73ec125ddb65",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "ContinueLooping"
+              ]
+            }
+          },
+          {
+            "NextAction": "Succesful registration prompt",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "DoneLooping"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Recuerda presionar la tecla numeral al finalizar"
+      },
+      "Identifier": "cba796cf-2378-4f06-aaed-73ec125ddb65",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "Incident title input",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowLoggingBehavior": "Enabled"
+      },
+      "Identifier": "8346c731-217c-4e6a-ba4c-34f8393ab721",
+      "Type": "UpdateFlowLoggingBehavior",
+      "Transitions": {
+        "NextAction": "80ad53e0-9a95-46d8-9432-99959cb59fb2"
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "ef37e5a2-988e-4775-8249-52a2c2af8591",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "Text": "Has excedido el número máximo de intentos, se terminará la llamada."
+      },
+      "Identifier": "04f7bf55-8466-43fe-b8d3-dee1db5f818e",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "ef37e5a2-988e-4775-8249-52a2c2af8591",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "user_phone_number": "$.CustomerEndpoint.Address"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "80ad53e0-9a95-46d8-9432-99959cb59fb2",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "Welcome message",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": " ",
+        "StoreInput": "False",
+        "InputTimeLimitSeconds": "180"
+      },
+      "Identifier": "Incident title input",
+      "Type": "GetParticipantInput",
+      "Transitions": {
+        "NextAction": "Succesful registration prompt",
+        "Conditions": [
+          {
+            "NextAction": "Succesful registration prompt",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "#"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "737de833-dd1f-4646-8937-5e3141c96c16",
+            "ErrorType": "InputTimeLimitExceeded"
+          },
+          {
+            "NextAction": "Succesful registration prompt",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LoopCount": "3"
+      },
+      "Identifier": "8ccf7705-6572-46b0-838e-618c7113b309",
+      "Type": "Loop",
+      "Transitions": {
+        "NextAction": "04f7bf55-8466-43fe-b8d3-dee1db5f818e",
+        "Conditions": [
+          {
+            "NextAction": "Invalid Employee ID",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "ContinueLooping"
+              ]
+            }
+          },
+          {
+            "NextAction": "04f7bf55-8466-43fe-b8d3-dee1db5f818e",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "DoneLooping"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "El id de empleado que ingresaste no es válido, por favor verificalo e ingrésalo de nuevo.\n\nPor favor dime tu id de empleado"
+      },
+      "Identifier": "Invalid Employee ID",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "Get Employee ID",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Bienvenido al sistema de reporte de incidentes de Antamina.\n\nPara reportar un incidente, es necesario que valides tu identidad en el sistema.\n\nPor favor dime tu vendor de empleado."
+      },
+      "Identifier": "Welcome message",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "Get Employee ID",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Por favor dime:\n\n¿Donde ocurrió el incidente?\n\nDame la ubicación detallada."
+      },
+      "Identifier": "Location prompt",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "Get location",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": " ",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:941377136868:bot-alias/UK30GQSFEP/WKT7A7PRG8"
+        },
+        "LexSessionAttributes": {
+          "x-amz-lex:audio:end-timeout-ms:*:*": "600",
+          "x-amz-lex:audio:max-length-ms:*:*": "15000"
+        }
+      },
+      "Identifier": "Get location",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "Error prompt",
+        "Errors": [
+          {
+            "NextAction": "Specific location prompt",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Si hay una ubicación específica, menciónala, si no es así, simplemente di NO."
+      },
+      "Identifier": "Specific location prompt",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "Get specific location",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": " ",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:941377136868:bot-alias/UK30GQSFEP/WKT7A7PRG8"
+        },
+        "LexSessionAttributes": {
+          "x-amz-lex:audio:end-timeout-ms:*:*": "500",
+          "x-amz-lex:audio:max-length-ms:*:*": "15000"
+        }
+      },
+      "Identifier": "Get specific location",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "Error prompt",
+        "Errors": [
+          {
+            "NextAction": "Involved companies prompt",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "employee_id": "$.Lex.Slots.employee_id"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "Save employee ID",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "Get OTP Code",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "El código ó té pé que ingresaste no es válido, por favor intenta de nuevo."
+      },
+      "Identifier": "4d91dd9d-0037-48c2-b9eb-76b31b735a55",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "Get OTP Code",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "No igresaste ningún código o es invalido, por favor intenta de nuevo."
+      },
+      "Identifier": "Invalid OTP Code",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "Get OTP Code",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LoopCount": "4"
+      },
+      "Identifier": "948749d8-57e4-40f1-acb5-66fede9990d9",
+      "Type": "Loop",
+      "Transitions": {
+        "NextAction": "04f7bf55-8466-43fe-b8d3-dee1db5f818e",
+        "Conditions": [
+          {
+            "NextAction": "Invalid OTP Code",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "ContinueLooping"
+              ]
+            }
+          },
+          {
+            "NextAction": "04f7bf55-8466-43fe-b8d3-dee1db5f818e",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "DoneLooping"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Dame una descripción detallada del incidente y cuáles acciones se tomaron para remediar el incidente. Al finalizar termina la llamada."
+      },
+      "Identifier": "Description - Actions prompt",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "Incident title input",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "¿Hubo otras compañias involucradas?\n\nDime cuales, o responde NO."
+      },
+      "Identifier": "Involved companies prompt",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "Get involved companies",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": " ",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:941377136868:bot-alias/UK30GQSFEP/WKT7A7PRG8"
+        },
+        "LexSessionAttributes": {
+          "x-amz-lex:audio:end-timeout-ms:*:*": "600",
+          "x-amz-lex:audio:max-length-ms:*:*": "15000"
+        }
+      },
+      "Identifier": "Get involved companies",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "Error prompt",
+        "Errors": [
+          {
+            "NextAction": "Description - Actions prompt",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.External.is_valid"
+      },
+      "Identifier": "Check OTP verification",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "Error prompt",
+        "Conditions": [
+          {
+            "NextAction": "4d91dd9d-0037-48c2-b9eb-76b31b735a55",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "RETRY"
+              ]
+            }
+          },
+          {
+            "NextAction": "5b2df56d-1ae7-4a5d-90ff-c9b67eed5dba",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "FALSE"
+              ]
+            }
+          },
+          {
+            "NextAction": "6239a264-1983-4c2f-9eae-702d8cde7750",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "TRUE"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": " Por favor dime tu código de autorización.",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:941377136868:bot-alias/UK30GQSFEP/WKT7A7PRG8"
+        },
+        "LexSessionAttributes": {
+          "x-amz-lex:audio:start-timeout-ms:*:*": "35000",
+          "x-amz-lex:audio:end-timeout-ms:*:*": "1000",
+          "x-amz-lex:audio:max-length-ms:*:*": "15000"
+        }
+      },
+      "Identifier": "Get OTP Code",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "Error prompt",
+        "Conditions": [
+          {
+            "NextAction": "Verify OTP",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "UserIdIntent"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "948749d8-57e4-40f1-acb5-66fede9990d9",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-east-1:941377136868:function:PRD-201-11645-otp-validation-prd",
+        "InvocationTimeLimitSeconds": "8",
+        "InvocationType": "SYNCHRONOUS",
+        "LambdaInvocationAttributes": {
+          "employee_id": "$.Attributes.employee_id",
+          "otp_code": "$.Lex.Slots.employee_id"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "Verify OTP",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "Check OTP verification",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.External.is_valid"
+      },
+      "Identifier": "Check employee ID",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "Error prompt",
+        "Conditions": [
+          {
+            "NextAction": "8ccf7705-6572-46b0-838e-618c7113b309",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "FALSE"
+              ]
+            }
+          },
+          {
+            "NextAction": "Save employee ID",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "TRUE"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": " ",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:941377136868:bot-alias/UK30GQSFEP/WKT7A7PRG8"
+        },
+        "LexSessionAttributes": {
+          "x-amz-lex:audio:end-timeout-ms:*:*": "1000",
+          "x-amz-lex:audio:max-length-ms:*:*": "15000"
+        }
+      },
+      "Identifier": "Get Employee ID",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "Error prompt",
+        "Conditions": [
+          {
+            "NextAction": "539c5a87-bcd4-4e43-b27a-860d6e1c0aaf",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "UserIdIntent"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "8ccf7705-6572-46b0-838e-618c7113b309",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Error obteniendo datos"
+      },
+      "Identifier": "Error prompt",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "ef37e5a2-988e-4775-8249-52a2c2af8591",
+        "Errors": [
+          {
+            "NextAction": "ef37e5a2-988e-4775-8249-52a2c2af8591",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-east-1:941377136868:function:PRD-201-11645-validate-employee-id-prd",
+        "InvocationTimeLimitSeconds": "8",
+        "InvocationType": "SYNCHRONOUS",
+        "LambdaInvocationAttributes": {
+          "employee_id": "$.Lex.Slots.employee_id"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "539c5a87-bcd4-4e43-b27a-860d6e1c0aaf",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "Check employee ID",
+        "Errors": [
+          {
+            "NextAction": "Error prompt",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}

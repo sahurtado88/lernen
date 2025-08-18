@@ -1,0 +1,137 @@
+groups:
+  - name: "GitlabPVCPercentage"
+    rules:
+      - alert: GitLabPVCUsagePercentage_P3
+        expr: |
+          100 * sum(kubelet_volume_stats_used_bytes{namespace="gitlab", persistentvolumeclaim=~"repo-data-svc-gitlab15-.+"}) by 
+          (persistentvolumeclaim) / sum(kubelet_volume_stats_capacity_bytes{namespace="gitlab", 
+          persistentvolumeclaim=~"repo-data-svc-gitlab15-.+"}) by (persistentvolumeclaim) > 50
+        for: 5m
+        labels:
+          service: kubernetes
+          cluster: '{{ $externalLabels.cluster }}'
+        annotations:
+          summary: 'GitLab PVC storage is running out of space {{ $externalLabels.cluster }}'
+          description: |
+            'Gitlab is running out of space'
+      - alert: GitLabPVCINODESUsagePercentage_P2
+        expr: |
+          100 * sum((kubelet_volume_stats_inodes{namespace="gitlab", persistentvolumeclaim=~"repo-data-svc-gitlab15-.+"} - kubelet_volume_stats_inodes_free{namespace="gitlab", persistentvolumeclaim=~"repo-data-svc-gitlab15-.+"})) by
+          (persistentvolumeclaim) / sum(kubelet_volume_stats_inodes{namespace="gitlab", persistentvolumeclaim=~"repo-data-svc-gitlab15-.+"}) by (persistentvolumeclaim) > 70
+        for: 10m
+        labels:
+          service: kubernetes
+          cluster: '{{ $externalLabels.cluster }}'
+        annotations:
+          summary: 'Gitlab is running out of INODES space {{ $externalLabels.cluster }}'
+          description: |
+            'Gitlab is running out of INODES space'
+
+ALERTS_DIR="C:\Users\SAHurtado\Downloads\testeo\helm\ftds-alerts\alerts"
+OUTPUT_FILE="alert_inventory.csv"
+
+
+echo "alert_name,platform,environment,file_name,threshold_time,alert_criteria" > $OUTPUT_FILE
+
+for file in "$ALERTS_DIR"/*.yml; do
+
+  file_name=$(basename "$file")
+
+  
+
+  alert_names=$(grep 'alert:' "$file" | sed -E 's/.*alert:[[:space:]]*//')
+
+
+
+  exprs=$(grep -Pzo '(?s)(?>expr: \|).*?(?=for:)' "$file" | sed 's/|//g; s/^ *//;s/\n/ /g' | tr -d '\0') 
+  threshold_times=$(grep 'for:' "$file" | sed -E 's/.*for:[[:space:]]*//')
+
+
+  platform="Prometheus"
+  environment="Production"
+
+
+  IFS=$'\n'
+  for alert_name in $alert_names; do
+
+    expr=$(echo "$exprs" | sed -n 1p)
+    threshold_time=$(echo "$threshold_times" | sed -n 1p)
+
+
+    exprs=$(echo "$exprs" | sed '1d')
+    threshold_times=$(echo "$threshold_times" | sed '1d')
+
+
+    echo "$alert_name,$platform,$environment,$file_name,$threshold_time,\"$expr\"" >> $OUTPUT_FILE
+  done
+done
+
+echo "Inventory $OUTPUT_FILE"
+
+______________
+
+#!/bin/bash
+
+# Ruta del directorio de alertas y archivo de salida
+ALERTS_DIR="C:\Users\SAHurtado\Downloads\testeo\helm\ftds-alerts\alerts"
+OUTPUT_FILE="alert_inventory.csv"
+
+# Cabecera para el archivo CSV
+echo "alert_name,platform,environment,file_name,threshold_time,alert_criteria" > $OUTPUT_FILE
+
+# Procesa cada archivo YAML
+for file in "$ALERTS_DIR"/*.yml; do
+  file_name=$(basename "$file")
+
+  # Extrae todas las secciones de alerta
+  alerts=$(grep -E 'alert:' "$file" | sed -E 's/.*alert:[[:space:]]*//')
+  exprs=$(grep -Pzo '(?s)(?<=expr: \|).*?(?=for:|$)' "$file" | sed 's/^ *//;s/\n/ /g; s/|//g' | tr -d '\0')
+  threshold_times=$(grep 'for:' "$file" | sed -E 's/.*for:[[:space:]]*//')
+
+  # Definición de valores de plataforma y entorno
+  platform="Prometheus"
+  environment="Production"
+
+  # Configuración de IFS para iterar en cada alerta encontrada
+  IFS=$'\n'
+  for alert_name in $alerts; do
+    # Asigna el primer expr y threshold_time disponible a la alerta actual
+    expr=$(echo "$exprs" | sed -n 1p)
+    threshold_time=$(echo "$threshold_times" | sed -n 1p)
+
+    # Elimina el expr y threshold_time ya usados para avanzar a la siguiente alerta
+    exprs=$(echo "$exprs" | sed '1d')
+    threshold_times=$(echo "$threshold_times" | sed '1d')
+
+    # Agrega la línea al archivo CSV
+    echo "$alert_name,$platform,$environment,$file_name,$threshold_time,\"$expr\"" >> $OUTPUT_FILE
+  done
+done
+
+echo "Inventario generado en $OUTPUT_FILE"
+_________________
+python
+
+import yaml
+
+# Cargar el archivo YAML
+with open('alerts.yml', 'r') as file:
+    data = yaml.safe_load(file)
+
+# Iterar sobre los grupos y las reglas
+for group in data['groups']:
+    print(f"Group: {group['name']}")
+    for rule in group['rules']:
+        alert_name = rule['alert']
+        expr = rule['expr'].replace('\n', ' ')  # Convertir a una sola línea
+        threshold_time = rule['for']
+        labels = rule.get('labels', {})
+        
+        print(f"  Alert Name: {alert_name}")
+        print(f"  Expression: {expr}")
+        print(f"  Threshold Time: {threshold_time}")
+        print("  Labels:")
+        for key, value in labels.items():
+            print(f"    {key}: {value}")
+        print()  # Línea en blanco para separación
+
