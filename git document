@@ -31,3 +31,54 @@ https://gitimmersion.com/lab_01.html
 
 https://www.atlassian.com/git/tutorials/advanced-overview
 
+
+# Crear alias comandos 
+
+git config --global alias.s status --short
+git config --global alias.lg "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
+# editar globla configuration
+git config --global -e
+
+# crear Tag
+
+git tag -a <Tag>  <commitid> -m "version Alpha eda Rimac"
+
+git tag -a Alpha  2784912 -m "version Alpha eda Rimac"
+
+# subir tag a repo remoto
+
+git push --tags
+git tag -a v1.0.0  1c18801  -m "version 1.0.0 event catalog Rimac"
+
+
+# basar una rama local en una rama remota
+
+Opción 1: Crear directamente desde la rama remota
+git fetch origin
+git checkout -b mi-rama origin/otra-rama-remota
+
+
+👉 Esto crea la rama local mi-rama basada en origin/otra-rama-remota.
+
+Opción 2: Si ya creaste la rama local y quieres alinearla a la remota
+
+Supongamos que tu rama se llama mi-rama y la quieres basar en origin/otra-rama-remota:
+
+git fetch origin
+git branch --set-upstream-to=origin/otra-rama-remota mi-rama
+git reset --hard origin/otra-rama-remota
+
+
+👉 Con esto:
+
+La rama mi-rama seguirá a origin/otra-rama-remota.
+
+El reset --hard mueve tu rama local exactamente al estado de la remota (⚠️ cuidado, borra cambios locales no confirmados).
+
+Opción 3: Si quieres mantener tus commits pero basarte en la remota
+
+En ese caso, puedes rebasear tu rama sobre la remota:
+
+git fetch origin
+git rebase origin/otra-rama-remota
