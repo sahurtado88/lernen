@@ -163,7 +163,7 @@ Prompt: "Guide me through a visualization exercise to help me internalize [topic
 
 _________
 
-Divide el 10% mas importante del conocimiento que necesito dominar sobe (habilidad) en el menro tiempo posible
+Divide el 10% mas importante del conocimiento que necesito dominar sobe (habilidad) en el menor tiempo posible
 
 Actua  como si te acabaran de rechazar el pago del movil y el alquiler vence en 48 horas. no puedes pedir prestado, no puedes dplicar. Diseña un plan despiadado , sin dormir, para generar 2500 usd usando IA, servicios, esfuerzo y agallas. Desglosalo hora por hora. Sin teorias solo accion
 
@@ -193,6 +193,6 @@ tego un examen de asignatura y tengo numero dias para estudiar. Puedo estudiar a
 
 Necesito flashcards para la asignatira del tema Creame una lista de 30 falshcards con preguntas cada una con su respuesta. Incluye las partes mas importantes, definiciones y procesos. Prioriza lo mas dificil para haer el aprendizaje mas efectivo
 
-Creame un exmen de tipo tet sobre preguntas sobre el tema incluye explicaciones de las respuestas incorrectas. quiero profundizar mi parendizaje entendiendo porque hay cada pregunta esta bien o mal
+Creame un exmen de tipo test sobre preguntas sobre el tema incluye explicaciones de las respuestas incorrectas. quiero profundizar mi parendizaje entendiendo porque hay cada pregunta esta bien o mal
 
 Haz un resumen practico y facil de entender de este texto simplifica los conceptos mas dificiles, los principales argmentso y todos los terminos que sean importantes, pero hazlo facil y sencillo para que lo pueda entender

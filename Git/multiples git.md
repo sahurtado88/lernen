@@ -103,3 +103,95 @@ git remote set-url origin git@github-sergio:dfx5/pe-cajaica-chatbot-backend.git
 git remote set-url origin git@github-sahurtado:sahurtado88/learn.git
 
 git remote set-url origin git@github-belcorp:tech-belcorp/saleforce-infra-mlops-iac.git
+
+
+wilson.martinez@dfx5.com
+
+
+# usando gh
+
+🧩 1. Verifica tu configuración actual de gh
+
+Ejecuta:
+
+gh auth status
+
+
+Esto te mostrará si ya hay alguna sesión activa (por ejemplo, autenticada con una de las cuentas).
+
+Si hay una sesión que no corresponde a la que quieres usar, puedes cerrarla con:
+
+gh auth logout
+
+
+(o agregar --hostname github.com si quieres especificar).
+
+⚙️ 2. Autenticación separada para cada host SSH
+
+Como tienes dos hosts diferentes definidos en SSH (github-sergio y github-sahurtado), puedes decirle a gh que se autentique con cada uno de ellos usando su propio contexto.
+
+Ejecuta los siguientes comandos (uno por cuenta):
+
+Cuenta 1: sergiohurtadodfx5
+GITHUB_HOST=github-sergio gh auth login
+
+Cuenta 2: sahurtado88
+GITHUB_HOST=github-sahurtado gh auth login
+
+
+🔹 Durante el proceso de gh auth login, selecciona:
+
+SSH como método de autenticación.
+
+Cuando te pregunte el host, usa exactamente el alias (github-sergio o github-sahurtado).
+
+Esto creará entradas separadas en ~/.config/gh/hosts.yml para cada identidad.
+
+🧠 3. Uso en repositorios
+
+Cuando clones o trabajes con repositorios, debes usar las URLs con el alias correspondiente:
+
+Ejemplo para la cuenta 1:
+git clone git@github-sergio:sergiohurtadodfx5/mi-repo.git
+
+Ejemplo para la cuenta 2:
+git clone git@github-sahurtado:sahurtado88/otro-repo.git
+
+
+Así Git y gh sabrán qué identidad SSH y qué autenticación de GitHub usar.
+
+🧰 4. (Opcional) Comprobación de conexión SSH
+
+Puedes probar que cada identidad funciona correctamente:
+
+ssh -T git@github-sergio
+ssh -T git@github-sahurtado
+
+
+Deberías ver mensajes como:
+
+Hi sergiohurtadodfx5! You've successfully authenticated...
+Hi sahurtado88! You've successfully authenticated...
+
+# COpia entre cdodecommits
+## Opción A : helper “genérico” + AWS_PROFILE por sesión
+Cambia tu .gitconfig para usar el helper sin perfil fijo:
+ini
+Copy
+[credential]
+    helper =
+    UseHttpPath = true
+    helper = !aws codecommit credential-helper $@
+En la terminal, alterna de cuenta con AWS_PROFILE:
+Para clonar desde la Cuenta A:
+bash
+Copy
+export AWS_PROFILE=accountA
+git clone --mirror https://git-codecommit.<region-origen>.amazonaws.com/v1/repos/mi-repo-origen
+cd mi-repo-origen.git
+Para empujar a la Cuenta B:
+bash
+Copy
+export AWS_PROFILE=accountB
+git push --mirror https://git-codecommit.<region-destino>.amazonaws.com/v1/repos/mi-repo-destino
+Ventajas: simple y explícito. Evita que un remoto use el perfil equivocado.

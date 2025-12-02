@@ -46,3 +46,10 @@ git branch -v
 
 # Merging Branches
 
+
+
+
+git@github.com:dfx5/ec-diners-dataproduct-iac.git
+git@github-sergio:dfx5/
+
+git remote add github git@github-sergio:dfx5/ec-diners-dataproduct-iac.git
