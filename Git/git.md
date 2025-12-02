@@ -53,3 +53,7 @@ git@github.com:dfx5/ec-diners-dataproduct-iac.git
 git@github-sergio:dfx5/
 
 git remote add github git@github-sergio:dfx5/ec-diners-dataproduct-iac.git
+
+# eliminar commit viehjo
+
+https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push
