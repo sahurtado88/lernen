@@ -387,4 +387,7 @@ At the end of a sprint:
 
 “Summarize the wins, blockers, and process improvements from these Slack messages and Jira updates.”
 
-Boom. Retrospective done in 10 minutes.
+Boom. Retrospective done in 10 minutes.        
+
+#
+eres un experto de clase mundial de [TEMA] entrename como si fuera tu aprendiz, desde principiante hasta maestria. Dividelo en etapas, tareas, recursos poco comunes y atajos. Incluye simulaciones o practicas en la vida real para interiorizar verdaderamente cada nivel

@@ -50,7 +50,7 @@ Host github-sahurtado
     IdentitiesOnly yes
 
 # Cuenta 3: sahbelcorpurtado88
-Host github-sahurtado
+Host github-belcorp
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_ed25519_belcorp
@@ -71,6 +71,8 @@ git clone git@github-sergio:sergiohurtadodfx5/REPO_AQUI.git
 git clone git@github-sergio:dfx5/PE-Rimac-Eda-Dev.git
 
 git clone git@github-sergio:dfx5/PE-Rimac-EventCatalog.git
+
+git clone git@github-belcorp:tech-belcorp/saleforce-infra-pipeline-app.git
 
 ### Repos de la cuenta 2 (sahurtado88)
 git clone git@github-sahurtado:sahurtado88/REPO_AQUI.git
@@ -195,3 +197,72 @@ Copy
 export AWS_PROFILE=accountB
 git push --mirror https://git-codecommit.<region-destino>.amazonaws.com/v1/repos/mi-repo-destino
 Ventajas: simple y explícito. Evita que un remoto use el perfil equivocado.
+
+
+# mirror Github
+
+1️⃣ Clona el repositorio original en modo mirror
+
+Esto copia todas las ramas, tags, refs, hooks (todo).
+
+git clone --mirror https://github.com/ORIGEN/REPO.git
+
+
+Ejemplo:
+
+git clone --mirror https://github.com/empresa-a/proyecto.git
+
+
+Esto crea una carpeta llamada:
+
+proyecto.git
+
+2️⃣ Entra al repositorio clonado
+cd proyecto.git
+
+3️⃣ Crea el repositorio destino en la otra cuenta
+
+En GitHub (cuenta B):
+
+Nuevo repositorio
+
+Vacío
+
+NO README
+
+NO .gitignore
+
+NO license
+
+Ejemplo destino:
+
+https://github.com/usuario-b/proyecto.git
+
+4️⃣ Empuja el mirror al repositorio destino
+git push --mirror https://github.com/DESTINO/REPO.git
+
+
+Ejemplo:
+
+git push --mirror https://github.com/usuario-b/proyecto.git
+
+
+👉 Esto:
+
+Reemplaza todo el contenido del repo destino
+
+Sincroniza ramas, tags y refs
+
+5️⃣ (Opcional) Automatizar el mirror
+
+Si quieres mantenerlo sincronizado periódicamente:
+
+git remote set-url --push origin https://github.com/usuario-b/proyecto.git
+git fetch -p origin
+git push --mirror
+
+
+O con cron / GitHub Actions si lo necesitas.
+
+https://chatgpt.com/c/696032f7-82b4-832e-aaa3-cf419e9d0af8
+
