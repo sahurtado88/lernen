@@ -10,6 +10,9 @@ ssh-keygen -t ed25519 -C "sahurtad@gmail.com" -f ~/.ssh/id_ed25519_sahurtado88
 # Cuenta 3 (belcrop)
 ssh-keygen -t ed25519 -C "extfshurtado@belcorp.biz" -f ~/.ssh/id_ed25519_belcorp
 
+# cuenta4 (bitbucket)
+ssh-keygen -t ed25519 -C "sergio.hurtado@dfx5.com" -f ~/.ssh/bitbucket   
+
 # Inicia ssh-agent y carga las claves:
 ## macOS/Linux:
 
@@ -17,6 +20,7 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519_sergio_dfx5
 ssh-add ~/.ssh/id_ed25519_sahurtado88
 ssh-add ~/.ssh/id_ed25519_belcorp
+ssh-add ~/.ssh/bitbucket   
 
 ## Windows (PowerShell):
 
@@ -25,12 +29,14 @@ Start-Service ssh-agent
 ssh-add $env:USERPROFILE\.ssh\id_ed25519_sergio_dfx5
 ssh-add $env:USERPROFILE\.ssh\id_ed25519_sahurtado88
 ssh-add $env:USERPROFILE\.ssh\id_ed25519_belcorp
+ssh-add $env:USERPROFILE\.ssh\bitbucket
 
 # Copia las claves públicas y añádelas en cada cuenta de GitHub (Settings → SSH and GPG keys → New SSH key), en la cuenta correcta:
 
 cat ~/.ssh/id_ed25519_sergio_dfx5.pub
 cat ~/.ssh/id_ed25519_sahurtado88.pub
 cat ~/.ssh/id_ed25519_belcorp.pub
+cat ~/.ssh/bitbucket.pub
 
 
 Configura ~/.ssh/config con alias separados:
@@ -54,6 +60,13 @@ Host github-belcorp
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_ed25519_belcorp
+    IdentitiesOnly yes
+
+# Cuenta 4: bitbucketdfx5
+Host bitbucket
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/bitbucket
     IdentitiesOnly yes
 
 

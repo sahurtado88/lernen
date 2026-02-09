@@ -183,7 +183,7 @@ Diseña una ruta de aprendizaje rapida para habilidad. Crea un plan de dominio d
 
 Mapea tema en una estructura de aprendizaje clara muestra ideas centrales, conceptos de apoyo y usos practicos. Crea ganchos de memoria y patrones de conexion. inlcuye disparadoresde recuerdo rapido. Genera un apuntuacion de retencion tema: tema
 
-Extare ideas clavesde libro. Muestra ideas principales, lecciones practicas y pasos de accion. Crea una guia de implementacion con maracadores de progreso. Incluye ejemplos de exito. Genera una calificacion de valor libro: libro
+Extrae ideas clavesde libro. Muestra ideas principales, lecciones practicas y pasos de accion. Crea una guia de implementacion con maracadores de progreso. Incluye ejemplos de exito. Genera una calificacion de valor libro: libro
 
 Crea desafios practicos inteligentes para tema muestra caminos de solucion, pasos de razonamiento y errores comunes. Incluye niveles de dificultad y pistas pa ala solucion. Genera una puntuacion de dominio 
 
@@ -193,6 +193,6 @@ tego un examen de asignatura y tengo numero dias para estudiar. Puedo estudiar a
 
 Necesito flashcards para la asignatira del tema Creame una lista de 30 falshcards con preguntas cada una con su respuesta. Incluye las partes mas importantes, definiciones y procesos. Prioriza lo mas dificil para haer el aprendizaje mas efectivo
 
-Creame un exmen de tipo test sobre preguntas sobre el tema incluye explicaciones de las respuestas incorrectas. quiero profundizar mi parendizaje entendiendo porque hay cada pregunta esta bien o mal
+Creame un examen de tipo test sobre preguntas sobre el tema incluye explicaciones de las respuestas incorrectas. quiero profundizar mi parendizaje entendiendo porque hay cada pregunta esta bien o mal
 
 Haz un resumen practico y facil de entender de este texto simplifica los conceptos mas dificiles, los principales argmentso y todos los terminos que sean importantes, pero hazlo facil y sencillo para que lo pueda entender
