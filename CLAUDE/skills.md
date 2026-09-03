@@ -55,4 +55,4 @@ A popular and growing (free!) public skills repository is skills.sh.
 
 There, you find a broad selection of skills you can add to your project. You can install skills from that repository into your project via npx skills add <owner/repo> (requires Node.js to be installed on your system, since npx is a tool installed together with Node.js).
 
-Of course, you can and should explore those skills you installed. You can tweak them or remove selected parts of the skills.
+Of course, you can and should explore those skills you installed. You can tweak them or remove selected parts of the skillss.
