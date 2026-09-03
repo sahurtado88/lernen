@@ -1,0 +1,7 @@
+services:
+  calculadora:
+    build:
+      context: .
+    image: calculadora-python:latest
+    stdin_open: true
+    tty: true

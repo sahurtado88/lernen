@@ -1,11 +1,113 @@
-my name is I studied at the University of A in Colombia and graduated in 2012 with a degree in electronic engineering. Since graduating, I have gained experience in various IT roles, including software development, database administration, and DevOps.
 
-My name is Sergio Hurtado. I'm an electronic engineer and I've been working in the IT area for about 9 years, in these years, I've gained experience in various IT roles, including software development, database administration, and DevOps.
+My name is Sergio Hurtado. I'm an electronic engineer and I've been working in the IT area for about 10 years, in these years, I've gained experience in various IT roles, including software development, database administration, and DevOps.
 
-I have about 5 years of experience in DevOps role, and I am certified as an Associate Architect in AWS and Azure Fundamentals. I have knowledge of tools like Git, 
-Jenkins, Azure DevOps, github action, Terraform, Ansible, Docker, Kubernetes, Prometheus, Grafana, and script development in Python and Bash.
+I’m a DevOps Engineer with around 6 years of experience, mainly focused on cloud infrastructure, automation, and CI/CD.
+
+I have hands-on experience with AWS and Azure, and I’ve worked with tools like Terraform, Ansible, Docker, Kubernetes, Jenkins, Azure DevOps, and GitHub Actions. I also have experience with monitoring tools such as Prometheus and Grafana, and I use Python and Bash for scripting and automation.
+
+Regarding certifications, I’m AWS Solutions Architect – Associate, Microsoft Azure Fundamentals, and HashiCorp Terraform Associate certified.
+
+Throughout my experience, I’ve been focused on automating infrastructure and deployments, improving CI/CD processes, and making environments more reliable and easier to manage.
+
+________  
+## DEVSECOPS
+
+# 1
+We had repositories and CI/CD pipelines where we needed to improve secret hygiene. We integrated secret detection into the development workflow using Gitleaks. When a potential secret was detected, we first validated whether it was an active credential and assessed its scope and exposure.
+
+The priority was not simply removing the secret from the repository. If the credential was valid, the first action was revocation or rotation.
+
+After that, we migrated the credential to an appropriate secrets-management solution, such as AWS Secrets Manager or protected CI/CD secrets, and updated the application or pipeline to consume the secret securely.
+
+We also automated parts of the remediation workflow, including ticket creation and notifications, so the responsible teams could track remediation.
+# 2 What do you do if you find an AWS access key committed to GitHub?
+
+First, I treat the credential as compromised. I identify the credential owner, determine whether it's active, and understand its permissions and potential blast radius.
+
+If it's active, the priority is to revoke or rotate it immediately.
+
+Then I investigate whether the credential was used unexpectedly by reviewing the relevant audit logs, such as CloudTrail.
+
+After containment, I remove the secret from the repository and, depending on the exposure, consider removing it from Git history.
+
+Finally, I move the credential to a proper secrets-management mechanism such as AWS Secrets Manager or GitHub Actions secrets and implement controls to prevent the same issue from happening again.
+
+# 3 If I delete the secret in a new commit, is the problem solved?
+
+Removing the secret from the latest version doesn't remove it from Git history. More importantly, rewriting history doesn't invalidate the credential either. The credential must be considered compromised and rotated or revoked.
+
+# 4 Have you worked with GitGuardian?
+My direct hands-on experience has been primarily with Gitleaks and GitHub Enterprise rather than GitGuardian. However, the remediation lifecycle is very similar: detect a potential secret, validate it, determine ownership and exposure, revoke or rotate the credential, remediate the repository, and implement preventive controls
+
+# 5 We have thousands of GitHub repositories and thousands of exposed secrets. How would you approach remediation?
+At enterprise scale, I wouldn't treat every finding equally.
+
+First, I would build an inventory of findings and enrich them with context: repository, secret type, credential provider, whether the secret is still valid, repository visibility, age, owner, and potential permissions.
+
+Then I would prioritize remediation based on risk. An active production cloud credential with broad permissions should be handled before an expired token in an archived repository.
+
+Once prioritized, I would map findings to repository or application owners and automate the remediation workflow through ServiceNow.
+
+High-risk active credentials would trigger immediate escalation and rotation, while lower-risk findings could follow standard remediation SLAs.
+
+Finally, I would track metrics such as active secrets discovered, mean time to remediation, recurrence rate, repositories with repeated violations, and percentage of findings remediated within SLA.
+
+# 6 How would you integrate GitGuardian with ServiceNow?
+
+
+________ 
+
+1. “Tell me about a project where you used Terraform.”
+
+In one of my projects, I used Terraform to automate the provisioning of cloud infrastructure instead of creating resources manually.
+
+I created reusable Terraform modules for resources such as networking, virtual machines, security groups, load balancers, and other cloud services. We also had different environments, such as development, staging, and production, so we reused the same modules with different configurations.
+
+For the Terraform state, we used a remote backend, which allowed the team to work with the same state and avoid conflicts. We also integrated Terraform into our CI/CD pipeline, so changes could be validated and reviewed before being applied.
+
+One of the main benefits was that the infrastructure became reproducible and version-controlled, and we significantly reduced manual configuration.
+
+Punto importante: si en tu experiencia real usaste S3 + DynamoDB, Azure Storage, Terraform Cloud, etc., menciona exactamente eso. No memorices tecnologías que no hayas utilizado.
+
+2. “How have you used Kubernetes?”
+
+I’ve used Kubernetes mainly to deploy and manage containerized applications.
+
+I’ve worked with resources such as Deployments, Services, ConfigMaps, Secrets, and Ingress. I’ve also worked with resource requests and limits, health checks, and scaling applications.
+
+From the DevOps side, I’ve integrated Kubernetes deployments with CI/CD pipelines, where the pipeline builds the Docker image, pushes it to a container registry, and then deploys the new version to the Kubernetes cluster.
+
+For troubleshooting, I normally start by checking the status of the pods and deployments, then I check events and container logs. Depending on the issue, I also verify networking, resource consumption, configuration, and health probes.
+
+I’ve also used Prometheus and Grafana for monitoring and visibility into the applications and infrastructure.
+
+Aquí el entrevistador probablemente profundizará con algo como “What happens when a pod keeps restarting?”. Una buena respuesta corta sería:
+
+First, I would check the pod status and events using kubectl describe pod, and then check the container logs using kubectl logs. If it’s a CrashLoopBackOff, I would verify the application logs, environment variables, ConfigMaps, Secrets, resource limits, and health probes to identify why the container is failing.
+
+3. “Describe a CI/CD pipeline you implemented.”
+
+Aquí evitaría simplemente decir “usé Jenkins”. Explica el flujo completo:
+
+I’ve implemented CI/CD pipelines using tools such as Jenkins, Azure DevOps, and GitHub Actions.
+
+A typical pipeline starts when a developer pushes code or creates a pull request. During the CI stage, we validate the code, run tests and static analysis, and then build a Docker image.
+
+If everything passes, the image is tagged and pushed to a container registry.
+
+For the deployment stage, depending on the project, we deploy the application to Kubernetes or use Terraform to provision or update the required infrastructure.
+
+We also have different controls depending on the environment. Development can be mostly automated, while production deployments can require approval before continuing.
+
+The main objective is to make deployments repeatable and reduce manual intervention while maintaining proper validation and control.
 
 I am currently working with kubernetes on AKS clusters validate the operation of pipelines in harness and create some alerts in grafana 
+
+Hi my name is Sergio, I'm a devops engineer with around six years of experience focused on cloud infraestructure, mainly AWS.
+
+In my current role, I work managing kubernetes cluster ensuring high availability, scalability and reliability. I've been involved in building and maintanining infraestructure using terraform, as well as automating deployments and operational tasks using tools like jenkins, githubaction, bahs and python
+
+I also have experience with monitoring and observability usign prometheus and grafana
 
 2 jenkins
 3-4 aws EC2, S·, Lambda, ROUTE53, SNS, SQS, EKS, RDS,IAM,APIGATEWAY,ECR, VPN
@@ -42,6 +144,8 @@ what caught my eye was your focus on remote work,
 the wide range of clients you have in diferrent buisness areas, and the possibility of growing personally and professionally
 
 I know your company has a variety of clients, you guarantee long-term assignments, give certification opportunities, and find projects that match employee knowledge.
+
+From what I understand Blue cloud is a global it services company focuse on cloud transformation. they help to modernize platforms and migrate to cloud arcuitectures your cobinig consulting with nads on implementation
 
 ______________
 # future carrer

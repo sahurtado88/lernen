@@ -161,6 +161,8 @@ Using taint and destroy command
 We need to taint that resource using terraform taint RESOURCE_TYPE.RESOURCE_NAME command
 After tainting the resource, you can run the “destroy” command to remove the tainted resources using terraform destroy -target=RESOURCE_TYPE.RESOURCE_NAME command
 
+I would use -replace when a resource is unhealthy or needs to be recreated even though Terraform doesn't detect a configuration change that requires replacement. I would first run terraform plan -replace=... to review the impact before applying it.
+
 ## Q13: How can we rename a resource in Terraform without deleting it?
 
 We can rename a resource without deleting it using terraform mv command
@@ -180,6 +182,8 @@ Terraform state will be mismatched and terraform will modify the EC2 instance to
 
 The variables are defined in the variables.tf file or using variables keyword that can be overridden but the locals can not be overridden.
 So if you want to restrict the overriding the variables at that time you need to use the locals.
+
+Variables are inputs to the module, while locals are internal values or expressions calculated inside the module.
 
 
 # Terraform lifecycle hoooks
@@ -238,6 +242,7 @@ typed value. It iterates over a given complex value, and generates a nested bloc
 that complex value. You can dynamically construct repeatable nested blocks using a special dynamic
 block type, which is supported inside resource, data, provider, and provisioner blocks.
 
+A dynamic block is used to generate repeated nested blocks inside a Terraform resource. It works with for_each over a collection and is useful when the number of nested blocks is variable, for example security group ingress rules.
 
 # Terraform
 
