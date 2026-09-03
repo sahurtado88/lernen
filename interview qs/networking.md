@@ -299,3 +299,10 @@ Below are the steps that are being followed:
 ![alt text](image-28.png)
 
 ![alt text](image-29.png)
+
+# BGP, or Border Gateway Protocol, 
+
+is a routing protocol used to exchange routes between different networks.
+
+
+“BGP is a dynamic routing protocol used to exchange network prefixes between autonomous systems. Instead of manually configuring every route, BGP allows routers to advertise which networks they can reach and dynamically learn the best path to those networks.”

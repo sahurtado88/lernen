@@ -1,4 +1,4 @@
-An EC2 instance in a private subnet cannot reach the internet. How would you troubleshoot it?
+# An EC2 instance in a private subnet cannot reach the internet. How would you troubleshoot it?
 
 Una respuesta fuerte en inglés sería:
 
@@ -16,21 +16,10 @@ If everything looks correct, I would check VPC Flow Logs to determine whether tr
 
 I would try to identify exactly which layer is failing before making any configuration changes.
 
-Esa estructura es excelente para este rol porque demuestra troubleshooting instincts, que el JD menciona explícitamente.
 
-3. Pregunta fundamental: Public vs Private subnet
 
-Interviewer:
+3. # What makes a subnet public?
 
-What makes a subnet public?
-
-Evita responder:
-
-A subnet with public IPs.
-
-Eso es incompleto.
-
-Mejor:
 
 A subnet is considered public when its route table has a route to an Internet Gateway.
 
@@ -40,11 +29,7 @@ Y:
 
 A private subnet does not have a direct route to an Internet Gateway. For outbound internet access, it typically routes traffic through a NAT Gateway located in a public subnet.
 
-4. NAT Gateway
-
-Pregunta frecuente:
-
-Why do we use a NAT Gateway?
+4. Why do we use a NAT Gateway?
 
 Respuesta:
 
@@ -132,11 +117,7 @@ Ahí puedes mencionar:
 
 For larger multi-VPC architectures, Transit Gateway is usually more appropriate.
 
-8. Transit Gateway
-
-Pregunta:
-
-When would you use Transit Gateway instead of VPC Peering?
+8. When would you use Transit Gateway instead of VPC Peering?
 
 Respuesta:
 
@@ -178,11 +159,12 @@ Interface Endpoint
 - Most other AWS services
 - Uses AWS PrivateLink
 - Creates ENIs inside the VPC
-10. DNS troubleshooting
 
-Pueden decir:
+AWS PrivateLink, on the other hand, is a service that provides private connectivity between VPCs, AWS services, and privately published services. It lets a service provider expose a service through a Network Load Balancer, and consumers connect to it using an Interface VPC Endpoint.
 
-The application can connect to an IP address but cannot connect using the hostname. What would you investigate?
+Gateway Endpoints are route-table based and are mainly used for S3 and DynamoDB. Interface Endpoints create private ENIs inside your subnets, use Security Groups, and are powered by AWS PrivateLink. Gateway Endpoints are generally simpler and cheaper, while Interface Endpoints support many more AWS services.
+
+10. The application can connect to an IP address but cannot connect using the hostname. What would you investigate?
 
 Tu primera conclusión:
 
@@ -196,9 +178,8 @@ Muy buen detalle para mencionar:
 
 dig example.internal
 nslookup example.internal
-11. Scenario que me parece MUY probable
 
-Two EC2 instances in different VPCs cannot communicate. How would you troubleshoot?
+11. Two EC2 instances in different VPCs cannot communicate. How would you troubleshoot?
 
 Usa esta estructura:
 
@@ -222,9 +203,7 @@ Routing needs to work in both directions.
 
 12. Cómo hablar durante troubleshooting
 
-Para este puesto, no intentes parecer que inmediatamente sabes la causa.
 
-Es mejor decir:
 
 First, I would try to narrow down the scope of the problem.
 
@@ -269,3 +248,23 @@ After that I would validate the connectivity component such as the NAT Gateway, 
 Finally, I would use VPC Flow Logs and available telemetry to validate my hypothesis.
 
 Eso te puede salvar varias preguntas.
+
+# Issue with NETWORK
+
+One networking issue I troubleshot in AWS involved intermittent connectivity between an application and a service running in another VPC.
+
+The interesting part was that it wasn’t a complete outage. Some requests worked, while others timed out. That made me suspect the issue could be related to the subnet or Availability Zone where the workload was running.
+
+I started by checking DNS resolution and TCP connectivity, then reviewed Security Groups and NACLs. Those looked fine, so I moved to the routing layer.
+
+When I compared the route tables across the subnets, I found that one subnet was missing the route to the remote VPC. I also used VPC Flow Logs to confirm that traffic from that subnet wasn’t reaching the expected destination.
+
+After fixing the route table, I tested connectivity from all Availability Zones and the timeouts disappeared.
+
+The main takeaway for me was the importance of troubleshooting networking layer by layer and using the pattern of the failure as a clue. Since the issue was intermittent, comparing the network configuration across Availability Zones was what led me to the root cause.
+
+## A question they might ask next is: “Why did it work sometimes?”
+
+The reason was that the tasks, pods, or instances were distributed across multiple subnets and Availability Zones, and only one of those subnets had the incorrect network configuration.
+
+So, workloads running in the correctly configured subnets could reach the destination, while workloads running in the affected subnet would fail or time out.
