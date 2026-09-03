@@ -188,4 +188,4 @@ build/
 *.log
 
 .tfvars
-.env
+.envMonitoring/DORA/config.json
