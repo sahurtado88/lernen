@@ -1,0 +1,271 @@
+An EC2 instance in a private subnet cannot reach the internet. How would you troubleshoot it?
+
+Una respuesta fuerte en inglés sería:
+
+I would troubleshoot it layer by layer rather than changing things immediately.
+
+First, I would confirm whether the issue is DNS resolution or actual network connectivity. For example, I would test connectivity to an IP address and then to a hostname.
+
+Then I would check the subnet's route table. Since this is a private subnet, I would expect a default route, 0.0.0.0/0, pointing to a NAT Gateway.
+
+I would then verify that the NAT Gateway is deployed in a public subnet and that the public subnet has a default route to an Internet Gateway.
+
+After that, I would verify the instance's Security Group and the subnet's Network ACLs.
+
+If everything looks correct, I would check VPC Flow Logs to determine whether traffic is being rejected and at which point.
+
+I would try to identify exactly which layer is failing before making any configuration changes.
+
+Esa estructura es excelente para este rol porque demuestra troubleshooting instincts, que el JD menciona explícitamente.
+
+3. Pregunta fundamental: Public vs Private subnet
+
+Interviewer:
+
+What makes a subnet public?
+
+Evita responder:
+
+A subnet with public IPs.
+
+Eso es incompleto.
+
+Mejor:
+
+A subnet is considered public when its route table has a route to an Internet Gateway.
+
+Typically, resources in that subnet also need a public or Elastic IP address to communicate directly with the internet.
+
+Y:
+
+A private subnet does not have a direct route to an Internet Gateway. For outbound internet access, it typically routes traffic through a NAT Gateway located in a public subnet.
+
+4. NAT Gateway
+
+Pregunta frecuente:
+
+Why do we use a NAT Gateway?
+
+Respuesta:
+
+A NAT Gateway allows resources in private subnets to initiate outbound connections to the internet without allowing the internet to initiate connections directly to those resources.
+
+Posible follow-up:
+
+Where should the NAT Gateway be deployed?
+
+In a public subnet, with an Elastic IP, and that subnet needs a route to an Internet Gateway.
+
+Y la private subnet:
+
+Private subnet
+0.0.0.0/0 → NAT Gateway
+
+Public subnet del NAT:
+
+Public subnet
+0.0.0.0/0 → Internet Gateway
+5. Security Groups vs NACL
+
+Esta casi seguro te la pueden preguntar.
+
+What is the difference between a Security Group and a Network ACL?
+
+Respuesta:
+
+Security Groups operate at the ENI or resource level and are stateful.
+
+Network ACLs operate at the subnet level and are stateless.
+
+With a Security Group, return traffic is automatically allowed for an established connection.
+
+With a Network ACL, both inbound and outbound rules must allow the traffic.
+
+Security Groups support allow rules, while Network ACLs support both allow and deny rules.
+
+Follow-up clásico:
+
+If I allow port 443 inbound in the NACL, is that enough?
+
+No.
+
+Puedes explicar:
+
+Because NACLs are stateless, I also need to consider the outbound ephemeral port range for the return traffic.
+
+6. Longest prefix match
+
+Pueden mostrarte:
+
+10.0.0.0/16 → local
+10.20.0.0/16 → peering
+10.20.30.0/24 → Transit Gateway
+0.0.0.0/0 → NAT Gateway
+
+Y preguntar:
+
+Where will traffic to 10.20.30.15 go?
+
+Respuesta:
+
+The /24 route through the Transit Gateway, because AWS routing uses longest-prefix matching.
+
+7. VPC Peering
+
+Preguntas importantes:
+
+Can VPC Peering be transitive?
+
+No.
+
+Supón:
+
+VPC A <----> VPC B <----> VPC C
+
+A no puede llegar a C usando B como tránsito.
+
+Respuesta:
+
+VPC Peering does not support transitive routing. If VPC A is peered with VPC B and VPC B is peered with VPC C, VPC A cannot automatically communicate with VPC C through VPC B.
+
+Ahí puedes mencionar:
+
+For larger multi-VPC architectures, Transit Gateway is usually more appropriate.
+
+8. Transit Gateway
+
+Pregunta:
+
+When would you use Transit Gateway instead of VPC Peering?
+
+Respuesta:
+
+I would use Transit Gateway when there are many VPCs or accounts that need centralized connectivity.
+
+With VPC Peering, the number of peerings can become difficult to manage as the environment grows.
+
+Transit Gateway provides a hub-and-spoke model and centralized routing.
+
+Visualmente:
+
+       VPC A
+         |
+VPC B -- TGW -- VPC C
+         |
+       VPC D
+
+Esto encaja mucho con el JD porque mencionan explícitamente interconnectivity between accounts and services.
+
+9. VPC Endpoint / PrivateLink
+
+Pregunta:
+
+How can an EC2 instance in a private subnet access S3 without using a NAT Gateway?
+
+Respuesta:
+
+I can use a VPC Endpoint.
+
+For S3 and DynamoDB, AWS provides Gateway Endpoints, which allow private connectivity without sending the traffic through a NAT Gateway or the public internet.
+
+También debes conocer:
+
+Gateway Endpoint
+- S3
+- DynamoDB
+
+Interface Endpoint
+- Most other AWS services
+- Uses AWS PrivateLink
+- Creates ENIs inside the VPC
+10. DNS troubleshooting
+
+Pueden decir:
+
+The application can connect to an IP address but cannot connect using the hostname. What would you investigate?
+
+Tu primera conclusión:
+
+That strongly suggests a DNS-related issue rather than a routing issue.
+
+Luego:
+
+I would check DNS resolution from the instance, the Route 53 records, whether the application uses a private hosted zone, whether that hosted zone is associated with the correct VPC, and whether VPC DNS resolution is enabled.
+
+Muy buen detalle para mencionar:
+
+dig example.internal
+nslookup example.internal
+11. Scenario que me parece MUY probable
+
+Two EC2 instances in different VPCs cannot communicate. How would you troubleshoot?
+
+Usa esta estructura:
+
+First, I would confirm the source IP, destination IP, port and protocol.
+
+Then I would verify that the VPC CIDR ranges don't overlap.
+
+I would check whether there is a connectivity mechanism between the VPCs, such as VPC Peering or Transit Gateway.
+
+Next, I would check the route tables on both sides because routing needs to work in both directions.
+
+Then I would verify Security Groups and Network ACLs.
+
+If DNS is involved, I would test connectivity using the IP address to separate DNS problems from network problems.
+
+Finally, I would use VPC Flow Logs or other telemetry to determine whether traffic is being accepted or rejected.
+
+Memoriza especialmente:
+
+Routing needs to work in both directions.
+
+12. Cómo hablar durante troubleshooting
+
+Para este puesto, no intentes parecer que inmediatamente sabes la causa.
+
+Es mejor decir:
+
+First, I would try to narrow down the scope of the problem.
+
+Después:
+
+I would verify whether this affects one instance, one subnet, one VPC, or multiple accounts.
+
+Después:
+
+I would separate DNS issues from connectivity issues.
+
+Después:
+
+I would validate the network path from source to destination.
+
+Esta forma de pensar es exactamente lo que busca un rol que tiene que decidir cuándo solucionar algo directamente y cuándo escalarlo.
+
+13. Framework de troubleshooting que puedes memorizar
+
+Cuando no sepas exactamente qué responder, usa:
+
+1. Scope
+2. DNS
+3. Routing
+4. Security Group
+5. NACL
+6. Connectivity component
+7. Logs
+
+En inglés:
+
+First I would determine the scope.
+
+Then I would separate DNS from connectivity.
+
+I would verify routing in both directions.
+
+Then Security Groups and Network ACLs.
+
+After that I would validate the connectivity component such as the NAT Gateway, Internet Gateway, VPC Peering or Transit Gateway.
+
+Finally, I would use VPC Flow Logs and available telemetry to validate my hypothesis.
+
+Eso te puede salvar varias preguntas.
